@@ -1,29 +1,32 @@
 using UnityEngine;
 
-public class WingController : MonoBehaviour
+namespace LazyBalls
 {
-    [SerializeField] private string buttonKey;
-    [SerializeField] private HingeJoint flapHingeJoint;
-    [SerializeField] private int flapMotorVelocity;
-    [SerializeField] private int flapMotorForce;
-    
-    private void Update()
+    public class WingController : MonoBehaviour
     {
-        if (Input.GetButtonDown(buttonKey))
+        [SerializeField] private string buttonKey;
+        [SerializeField] private HingeJoint flapHingeJoint;
+        [SerializeField] private int flapMotorVelocity;
+        [SerializeField] private int flapMotorForce;
+
+        private void Update()
         {
-            flapHingeJoint.motor = new JointMotor
+            if (Input.GetButtonDown(buttonKey))
             {
-                force = flapMotorForce,
-                targetVelocity = flapMotorVelocity
-            };
-        }
-        else if (Input.GetButtonUp(buttonKey))
-        {
-            flapHingeJoint.motor = new JointMotor
+                flapHingeJoint.motor = new JointMotor
+                {
+                    force = flapMotorForce,
+                    targetVelocity = flapMotorVelocity
+                };
+            }
+            else if (Input.GetButtonUp(buttonKey))
             {
-                force = flapMotorForce,
-                targetVelocity = -flapMotorVelocity
-            };
+                flapHingeJoint.motor = new JointMotor
+                {
+                    force = flapMotorForce,
+                    targetVelocity = -flapMotorVelocity
+                };
+            }
         }
     }
 }
