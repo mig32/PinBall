@@ -110,5 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f111b45ad0e64664e9a9338a64cd41ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 2
+  boosterScore: 50
+  boosterComboScore: 0
+  boosterMaxScore: 50
   boosterForce: 6
   angleThreshold: 60

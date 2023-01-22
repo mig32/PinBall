@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1606998086628462018}
   - component: {fileID: 8687789550392953417}
   - component: {fileID: 1857327475813059915}
+  - component: {fileID: 2813371270667356499}
   m_Layer: 0
   m_Name: LaunchPad
   m_TagString: Untagged
@@ -128,3 +129,15 @@ MonoBehaviour:
   minForce: 4
   maxForce: 20
   chargeTime: 2
+--- !u!114 &2813371270667356499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316331727855143195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e27600ca81d4c5c9de6fa1d721896cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

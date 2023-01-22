@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LazyBalls.Boosters
 {
-    public class RoundBooster : MonoBehaviour
+    public class RoundBooster : BoosterBase
     {
         [SerializeField] private float boosterForce;
 
@@ -22,6 +22,7 @@ namespace LazyBalls.Boosters
             var dir = other.contacts[0].point - transform.position;
             dir = dir.normalized;
             ballRigidbody.AddForce(dir * boosterForce);
+            AddScore();
         }
     }
 }
