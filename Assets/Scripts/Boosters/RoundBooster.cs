@@ -6,20 +6,20 @@ namespace LazyBalls.Boosters
     {
         [SerializeField] private float boosterForce;
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision other)
         {
-            if (!collision.gameObject.CompareTag(GameTags.Ball))
+            if (!other.gameObject.CompareTag(GameTags.Ball))
             {
                 return;
             }
 
-            var ballRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            var ballRigidbody = other.gameObject.GetComponent<Rigidbody>();
             if (ballRigidbody == null)
             {
                 return;
             }
 
-            var dir = collision.contacts[0].point - transform.position;
+            var dir = other.contacts[0].point - transform.position;
             dir = dir.normalized;
             ballRigidbody.AddForce(dir * boosterForce);
         }

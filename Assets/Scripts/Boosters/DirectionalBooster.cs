@@ -7,20 +7,20 @@ namespace LazyBalls.Boosters
         [SerializeField] private float boosterForce;
         [SerializeField] private float angleThreshold = 60;
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter(Collision other)
         {
-            if (!collision.gameObject.CompareTag(GameTags.Ball))
+            if (!other.gameObject.CompareTag(GameTags.Ball))
             {
                 return;
             }
 
-            var ballRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            var ballRigidbody = other.gameObject.GetComponent<Rigidbody>();
             if (ballRigidbody == null)
             {
                 return;
             }
 
-            var collisionVec = collision.transform.position - transform.position;
+            var collisionVec = other.transform.position - transform.position;
             var collisionAngle = Vector3.Angle(collisionVec, transform.forward);
             if (collisionAngle > angleThreshold)
             {

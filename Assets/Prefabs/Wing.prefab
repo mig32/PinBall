@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a6108244d34f4a4a9bf143b591dc916, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonKey: Fire2
+  buttonKey: FlapRight
   flapHingeJoint: {fileID: 3188024555894082803}
   flapMotorVelocity: 1500
   flapMotorForce: 150
