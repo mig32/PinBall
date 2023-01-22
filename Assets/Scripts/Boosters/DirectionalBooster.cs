@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace LazyBalls.Boosters
 {
-    public class DirectionalBooster : MonoBehaviour
+    public class DirectionalBooster : BoosterBase
     {
         [SerializeField] private float boosterForce;
         [SerializeField] private float angleThreshold = 60;
@@ -28,6 +28,7 @@ namespace LazyBalls.Boosters
             }
             
             ballRigidbody.AddForce(transform.forward * boosterForce);
+            AddScore();
         }
     }
 }

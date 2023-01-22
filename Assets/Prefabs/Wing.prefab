@@ -97,7 +97,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.0000001013279, y: 0.00000005960465, z: -0.00000008940701}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1722890505243509340
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 6770731085465611662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9, y: 0.5, z: 0.8}
+  m_LocalScale: {x: 0.9, y: 0.5, z: 0.9}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8870267810003281782}
@@ -295,7 +295,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -345,11 +345,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 6770731085465611662}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000001013279, y: -1.1368684e-13, z: 0.0000013411045}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7048913720926126261
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 118533573878274516}
   - component: {fileID: 7384636874007839283}
+  - component: {fileID: 8392058813890993047}
   m_Layer: 0
   m_Name: Wing
   m_TagString: Untagged
@@ -399,6 +400,18 @@ MonoBehaviour:
   flapHingeJoint: {fileID: 3188024555894082803}
   flapMotorVelocity: 1500
   flapMotorForce: 150
+--- !u!114 &8392058813890993047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7048913720926126261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e27600ca81d4c5c9de6fa1d721896cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7514132304511591277
 GameObject:
   m_ObjectHideFlags: 0
