@@ -1,3 +1,4 @@
+using LazyBalls.CSV;
 using UnityEngine;
 
 namespace LazyBalls.Boosters
@@ -24,17 +25,21 @@ namespace LazyBalls.Boosters
         }
         
         [SerializeField] private BoosterType type;
-        [SerializeField] private int boosterScore;
-        [SerializeField] private int boosterComboScore;
-        [SerializeField] private int boosterMaxScore;
+        
+        private BoosterScore _boosterScore;
+
+        private void Start()
+        {
+            _boosterScore = BoostersLib.Instance().GetBoosterScoreForType(type);
+        }
 
         protected void AddScore()
         {
-            var score = boosterScore;
+            var score = _boosterScore.score;
             if (_boosterHistory.LastBoosterType == type)
             {
                 ++_boosterHistory.ComboAmount;
-                score += Mathf.Min(_boosterHistory.ComboAmount * boosterComboScore, boosterMaxScore);
+                score += Mathf.Min(_boosterHistory.ComboAmount * _boosterScore.combo, _boosterScore.max);
             }
             else
             {

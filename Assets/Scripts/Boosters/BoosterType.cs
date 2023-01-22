@@ -2,8 +2,8 @@ namespace LazyBalls.Boosters
 {
     public enum BoosterType
     {
-        None,
-        Round,
-        Directional
+        None = 0,
+        Round = 1,
+        Directional = 2
     }
 }
