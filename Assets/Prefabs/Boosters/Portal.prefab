@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994f2340edb8e324e9fab8c7476a1174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
+  type: 3
   teleportDelay: 0.5
   boosterForce: 3
   portalExitTransform: {fileID: 4993149324717877480}
