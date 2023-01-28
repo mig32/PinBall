@@ -30,5 +30,11 @@ namespace LazyBalls.Boosters
             ballRigidbody.AddForce(transform.forward * boosterForce);
             AddScore();
         }
+        
+        public void OnDrawGizmos()
+        {
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawRay(new Ray(transform.position, transform.forward));
+        }
     }
 }
