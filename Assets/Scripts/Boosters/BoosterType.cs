@@ -4,6 +4,7 @@ namespace LazyBalls.Boosters
     {
         None = 0,
         Round = 1,
-        Directional = 2
+        Directional = 2,
+        Portal = 4
     }
 }

@@ -433,18 +433,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2364144506870779131, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2364144506870779131, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2364144506870779131, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2951304634240115128, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
       propertyPath: m_Name
       value: GameField
@@ -492,18 +480,6 @@ PrefabInstance:
     - target: {fileID: 2951304634240115131, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081362384433081510, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9914449
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081362384433081510, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.13052624
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081362384433081510, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
