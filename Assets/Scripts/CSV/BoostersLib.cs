@@ -31,10 +31,6 @@ namespace LazyBalls.CSV
             }
 
             _instance = this;
-        }
-
-        private void Start()
-        {
             _boostersList = CSVSerializer.Deserialize<BoosterScore>(boostersCSV.text);
         }
 

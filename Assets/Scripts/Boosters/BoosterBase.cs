@@ -28,7 +28,7 @@ namespace LazyBalls.Boosters
         
         private BoosterScore _boosterScore;
 
-        private void Start()
+        protected virtual void Start()
         {
             _boosterScore = BoostersLib.Instance().GetBoosterScoreForType(type);
         }
