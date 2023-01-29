@@ -1,0 +1,15 @@
+Key,Ru,En
+Play,Играть,Play
+Play_Again,Сыграть ещё раз,Play again
+Game_Over,Конец игры,Game Over
+Score,Очки,Score
+Best_Score,Лучший результат,Best score
+About,О нас,About
+About_Prod_Title,Продюсирование,Producer
+About_Prod_Name,Александр Синицын,Alexandr Sinitsyn
+About_Dev_Title,Разработка,Development
+About_Dev_Name,Григорий Капланский,Grigory Kaplansky
+About_Sound_Title,Музыка,Music
+About_Sound_Name,Александр Журавлёв,Alexandr Zhuravlev
+Balls_Count,Шары: {0},Balls: {0}
+Score_Amount,Очки: {0},Score: {0}
