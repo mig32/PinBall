@@ -2,13 +2,12 @@ using System.Collections.Generic;
 using System.Linq;
 using LazyBalls;
 using LazyBalls.Dialogs;
-using TMPro;
 using UnityEngine;
 
 public class GUIController : MonoBehaviour
 {
-    [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text ballsText;
+    [SerializeField] private LocalizeTextWithIntParam scoreText;
+    [SerializeField] private LocalizeTextWithIntParam ballsText;
     [SerializeField] private RectTransform dialogsContainer;
     [SerializeField] private List<DialogBase> dialogList;
     
@@ -56,11 +55,11 @@ public class GUIController : MonoBehaviour
 
     private void UpdateScore()
     {
-        scoreText.text = $"Score: {PlayerInfo.Instance().Score}";
+        scoreText.SetParam(PlayerInfo.Instance().Score);
     }
 
     private void UpdateBalls()
     {
-        ballsText.text = $"Balls: {PlayerInfo.Instance().Balls}";
+        ballsText.SetParam(PlayerInfo.Instance().Balls);
     }
 }

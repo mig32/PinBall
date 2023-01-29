@@ -111,6 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1075245712714390300}
   - component: {fileID: 8368566929330344798}
+  - component: {fileID: 1399836680401094569}
   - component: {fileID: 8287059344842910550}
   m_Layer: 5
   m_Name: BallsText
@@ -147,6 +148,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1369364364248170891}
   m_CullTransparentMesh: 1
+--- !u!114 &1399836680401094569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369364364248170891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9504f5b31b4e559582c04b4db1b60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localeKey: Balls_Count
 --- !u!114 &8287059344842910550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,8 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73e18ee58df679d41ad9fefd27157883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 5402005230314307212}
-  ballsText: {fileID: 8287059344842910550}
+  scoreText: {fileID: 1010515863950741683}
+  ballsText: {fileID: 1399836680401094569}
   dialogsContainer: {fileID: 4548012409457616777}
   dialogList:
   - {fileID: 1939529814835172124, guid: e970d41e1c8b2f347838a53748b83b0e, type: 3}
@@ -367,6 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5774784920938570073}
   - component: {fileID: 7436378466169179772}
+  - component: {fileID: 1010515863950741683}
   - component: {fileID: 5402005230314307212}
   m_Layer: 5
   m_Name: ScoreText
@@ -403,6 +418,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5725866773894772565}
   m_CullTransparentMesh: 1
+--- !u!114 &1010515863950741683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5725866773894772565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a9504f5b31b4e559582c04b4db1b60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localeKey: Score_Amount
 --- !u!114 &5402005230314307212
 MonoBehaviour:
   m_ObjectHideFlags: 0

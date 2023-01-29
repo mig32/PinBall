@@ -33,7 +33,7 @@ namespace LazyBalls.Boosters
         
         public void OnDrawGizmos()
         {
-            Gizmos.color = Color.magenta;
+            Gizmos.color = Color.green;
             Gizmos.DrawRay(new Ray(transform.position, transform.forward));
         }
     }

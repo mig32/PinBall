@@ -130,7 +130,7 @@ namespace LazyBalls.Boosters
             Gizmos.color = gizmosColor;
             Gizmos.DrawCube(entryPosition, new Vector3(0.1f, 0.1f, 0.1f));
             Gizmos.DrawSphere(exitPosition, 0.025f);
-            Gizmos.color = gizmosColor;
+            Gizmos.color = Color.green;
             Gizmos.DrawRay(new Ray(exitPosition, exitTransform.forward));
             foreach (var randomPortalBooster in FindObjectsOfType<RandomPortalBooster>())
             {
