@@ -37,13 +37,13 @@ namespace LazyBalls.Configs
                         soundInfo.sounds.Length == 0 || 
                         soundInfo.sounds.All(it => it == null))
                     {
-                        UnityEngine.Debug.LogError($"SoundConfig -> Sound for type {type} is missing");
+                        UnityEngine.Debug.LogWarning($"SoundConfig -> Sound for type {type} is missing");
                     }
                     continue;
                 }
                 
                 soundList.Add(new SoundInfo{type = type});
-                UnityEngine.Debug.LogError($"SoundConfig -> Sound for type {type} is missing");
+                UnityEngine.Debug.LogWarning($"SoundConfig -> Sound for type {type} is missing");
             }
         }
         
