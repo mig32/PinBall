@@ -4,6 +4,7 @@ namespace LazyBalls.Dialogs
     {
         Start,
         GameOver,
-        Pause
+        Pause,
+        Credits
     }
 }

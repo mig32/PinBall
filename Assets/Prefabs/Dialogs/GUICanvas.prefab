@@ -311,6 +311,8 @@ MonoBehaviour:
   - {fileID: 1939529814835172124, guid: e970d41e1c8b2f347838a53748b83b0e, type: 3}
   - {fileID: 2820052692038179779, guid: b139823b6437fbe45b18e8d891ce726a, type: 3}
   - {fileID: 7689738745927427339, guid: 366c6bcd847afdc41a8f8c53bf50336c, type: 3}
+  - {fileID: 6148080456450813109, guid: a2002bf153480234fb3ce8ebb52be6ef, type: 3}
+  pauseButtonKey: Pause
 --- !u!223 &5371299526099954719
 Canvas:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using LazyBalls.Ads;
 using LazyBalls.Singletons;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace LazyBalls.Dialogs
@@ -20,6 +21,7 @@ namespace LazyBalls.Dialogs
         [SerializeField] private Toggle soundToggle;
         [SerializeField] private Button startButton;
         [SerializeField] private Button adButton;
+        [SerializeField] private Button creditsButton;
         [SerializeField] private TMP_Dropdown languageDropdown;
         [SerializeField] private LanguageItem[] languageList;
 
@@ -28,6 +30,7 @@ namespace LazyBalls.Dialogs
             base.Start();
             
             startButton.onClick.AddListener(StartGame);
+            creditsButton.onClick.AddListener(ShowCredits);
             
 #if UNITY_IOS || UNITY_ANDROID
             adButton.onClick.AddListener(ShowAd);
@@ -83,11 +86,25 @@ namespace LazyBalls.Dialogs
         {
             AdsController.Instance().ShowAd(AdType.Basic);
         }
-
+        
         private void ChangeLanguage(int languageIdx)
         {
             var selectedLanguage = languageList[languageIdx].language;
             LocalizationLib.Instance().SetLanguage(selectedLanguage);
+            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
+        }
+
+        private void ShowCredits()
+        {
+            var creditsDialog = GUIController.Instance().ShowDialog(DialogType.Credits);
+            creditsDialog.OnClose += ShowThis;
+            gameObject.SetActive(false);
+            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
+
+            void ShowThis()
+            {
+                gameObject.SetActive(true);
+            }
         }
         
         public override DialogType GetDialogType() => DialogType.Start;
