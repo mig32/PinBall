@@ -34,13 +34,13 @@ namespace LazyBalls.Configs
                     var musicInfo = musicList.FirstOrDefault(it => it.type == type);
                     if (musicInfo.music == null)
                     {
-                        UnityEngine.Debug.LogError($"MusicConfig -> Music for type {type} is missing");
+                        UnityEngine.Debug.LogWarning($"MusicConfig -> Music for type {type} is missing");
                     }
                     continue;
                 }
                 
                 musicList.Add(new MusicInfo{type = (MusicController.MusicType)type});
-                UnityEngine.Debug.LogError($"MusicConfig -> Music for type {type} is missing");
+                UnityEngine.Debug.LogWarning($"MusicConfig -> Music for type {type} is missing");
             }
         }
 

@@ -1,3 +1,4 @@
+using LazyBalls.Ads;
 using LazyBalls.Singletons;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,15 +7,22 @@ namespace LazyBalls.Dialogs
 {
     public class StartDialog : DialogBase
     {
-        [SerializeField] private Button startButton;
         [SerializeField] private Toggle musicToggle;
         [SerializeField] private Toggle soundToggle;
+        [SerializeField] private Button startButton;
+        [SerializeField] private Button adButton;
 
         protected override void Start()
         {
             base.Start();
             
             startButton.onClick.AddListener(StartGame);
+            
+#if UNITY_IOS || UNITY_ANDROID
+            adButton.onClick.AddListener(ShowAd);
+#else
+            adButton.gameObject.SetActive(false);
+#endif
 
             musicToggle.isOn = MusicController.Instance().IsEnabled;
             musicToggle.onValueChanged.AddListener(SetMusicEnabled);
@@ -45,6 +53,11 @@ namespace LazyBalls.Dialogs
             {
                 SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
             }
+        }
+
+        private void ShowAd()
+        {
+            AdsController.Instance().ShowAd(AdType.Basic);
         }
 
         public override DialogType GetDialogType() => DialogType.Start;

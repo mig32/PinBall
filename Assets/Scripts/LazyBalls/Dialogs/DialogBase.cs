@@ -14,7 +14,10 @@ namespace LazyBalls.Dialogs
 
         protected virtual void OnDestroy()
         {
-            SoundController.Instance().PlaySound(SoundController.SoundType.DialogHide);
+            if (SoundController.Instance() != null)
+            {
+                SoundController.Instance().PlaySound(SoundController.SoundType.DialogHide);
+            }
         }
     }
 }
