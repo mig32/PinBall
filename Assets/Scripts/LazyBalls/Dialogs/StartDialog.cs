@@ -1,5 +1,7 @@
+using System;
 using LazyBalls.Ads;
 using LazyBalls.Singletons;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +9,19 @@ namespace LazyBalls.Dialogs
 {
     public class StartDialog : DialogBase
     {
+        [Serializable]
+        private struct LanguageItem
+        {
+            public SystemLanguage language;
+            public string languageName;
+        }
+        
         [SerializeField] private Toggle musicToggle;
         [SerializeField] private Toggle soundToggle;
         [SerializeField] private Button startButton;
         [SerializeField] private Button adButton;
+        [SerializeField] private TMP_Dropdown languageDropdown;
+        [SerializeField] private LanguageItem[] languageList;
 
         protected override void Start()
         {
@@ -29,6 +40,19 @@ namespace LazyBalls.Dialogs
             
             soundToggle.isOn = SoundController.Instance().IsEnabled;
             soundToggle.onValueChanged.AddListener(SetSoundEnabled);
+            
+            var selectedLanguage = LocalizationLib.Instance().GetSelectedLanguage();
+            languageDropdown.onValueChanged.AddListener(ChangeLanguage);
+            languageDropdown.options.Clear();
+            for (var i = 0; i < languageList.Length; ++i)
+            {
+                languageDropdown.options.Add(new TMP_Dropdown.OptionData(languageList[i].languageName));
+                if (selectedLanguage == languageList[i].language)
+                {
+                    languageDropdown.value = i;
+                }
+            }
+
             
             MusicController.Instance().PlayMusic(MusicController.MusicType.Menu);
         }
@@ -60,6 +84,12 @@ namespace LazyBalls.Dialogs
             AdsController.Instance().ShowAd(AdType.Basic);
         }
 
+        private void ChangeLanguage(int languageIdx)
+        {
+            var selectedLanguage = languageList[languageIdx].language;
+            LocalizationLib.Instance().SetLanguage(selectedLanguage);
+        }
+        
         public override DialogType GetDialogType() => DialogType.Start;
     }
 }
