@@ -68,6 +68,8 @@ namespace LazyBalls.Singletons
                 OnLanguageChanged?.Invoke();
             }
         }
+
+        public SystemLanguage GetSelectedLanguage() => _selectedLanguage;
         
         public string GetTranslation(string key)
         {
