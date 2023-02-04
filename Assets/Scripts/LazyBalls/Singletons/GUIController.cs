@@ -50,10 +50,10 @@ namespace LazyBalls.Singletons
             }
         }
 
-        public void ShowDialog(DialogType type)
+        public DialogBase ShowDialog(DialogType type)
         {
             var prefab = dialogList.FirstOrDefault(it => it.GetDialogType() == type);
-            Instantiate(prefab, dialogsContainer);
+            return Instantiate(prefab, dialogsContainer);
         }
 
         private void UpdateScore()
