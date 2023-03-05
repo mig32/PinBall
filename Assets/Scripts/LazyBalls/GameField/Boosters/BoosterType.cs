@@ -5,6 +5,7 @@ namespace LazyBalls.GameField.Boosters
         None = 0,
         Round = 1,
         Directional = 2,
-        Portal = 3
+        Portal = 3,
+        Arrows = 4
     }
 }

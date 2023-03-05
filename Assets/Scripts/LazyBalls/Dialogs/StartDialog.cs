@@ -24,6 +24,9 @@ namespace LazyBalls.Dialogs
         [SerializeField] private Button creditsButton;
         [SerializeField] private TMP_Dropdown languageDropdown;
         [SerializeField] private LanguageItem[] languageList;
+        [SerializeField] private LocalizeTextWithIntParam maxScoreText;
+        [SerializeField] private LocalizeTextWithIntParam prevScoreText;
+
 
         protected override void Start()
         {
@@ -55,7 +58,9 @@ namespace LazyBalls.Dialogs
                     languageDropdown.value = i;
                 }
             }
-
+            
+            maxScoreText.SetParam(PlayerInfo.Instance().MaxScore);
+            prevScoreText.SetParam(PlayerInfo.Instance().PrevScore);
             
             MusicController.Instance().PlayMusic(MusicController.MusicType.Menu);
         }

@@ -29,8 +29,6 @@ namespace LazyBalls.Singletons
         [SerializeField] private SoundConfig soundConfig;
 
         private readonly Dictionary<int, AudioSource> _audioSourcePool = new ();
-
-        private const string SoundKey = "sound";
         
         private static SoundController _instance;
         public static SoundController Instance() => _instance;
@@ -43,7 +41,7 @@ namespace LazyBalls.Singletons
             }
 
             _instance = this;
-            _isEnabled = PlayerPrefs.GetInt(SoundKey, _isEnabled ? 1 : 0) > 0;
+            _isEnabled = LocalStorage.IsSoundEnabled;
         }
 
         private void OnDestroy()
@@ -99,7 +97,7 @@ namespace LazyBalls.Singletons
             set
             {
                 _isEnabled = value;
-                PlayerPrefs.SetInt(SoundKey, _isEnabled ? 1 : 0);
+                LocalStorage.IsSoundEnabled = _isEnabled;
             }
         }
 
