@@ -21,7 +21,7 @@ namespace LazyBalls.Dialogs
         
         protected override void UpdateText()
         {
-            Text.text = string.Format(LocalizationLib.Instance().GetTranslation(localeKey), _pram); 
+            text.text = string.Format(LocalizationLib.Instance().GetTranslation(localeKey), _pram); 
         }
     }
 }

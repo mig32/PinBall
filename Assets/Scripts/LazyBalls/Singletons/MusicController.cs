@@ -13,8 +13,6 @@ namespace LazyBalls.Singletons
         
         [SerializeField] private AudioSource musicSource;
         [SerializeField] private MusicConfig musicConfig;
-    
-        private const string MusicKey = "music";
         
         private static MusicController _instance;
         public static MusicController Instance() => _instance;
@@ -28,7 +26,7 @@ namespace LazyBalls.Singletons
             }
 
             _instance = this;
-            _isEnabled = PlayerPrefs.GetInt(MusicKey, _isEnabled ? 1 : 0) > 0;
+            _isEnabled = LocalStorage.IsMusicEnabled;
         }
 
         private void OnDestroy()
@@ -79,7 +77,7 @@ namespace LazyBalls.Singletons
                     musicSource.Stop();
                 }
                 
-                PlayerPrefs.SetInt(MusicKey, _isEnabled ? 1 : 0);
+                LocalStorage.IsMusicEnabled = _isEnabled;
             }
         }
     }

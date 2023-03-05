@@ -13,3 +13,5 @@ About_Sound_Title,Музыка,Music
 About_Sound_Name,Александр Журавлёв,Alexandr Zhuravlev
 Balls_Count,Шары: {0},Balls: {0}
 Score_Amount,Очки: {0},Score: {0}
+MaxScore,Максимум очков: {0},Max score: {0}
+PrevScore,Очки в предыдщей игре: {0},Prevoious score: {0}

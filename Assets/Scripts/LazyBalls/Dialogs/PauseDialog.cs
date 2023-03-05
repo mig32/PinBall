@@ -10,6 +10,8 @@ namespace LazyBalls.Dialogs
         [SerializeField] private Button exitButton;
         [SerializeField] private Toggle musicToggle;
         [SerializeField] private Toggle soundToggle;
+        [SerializeField] private LocalizeTextWithIntParam maxScoreText;
+        [SerializeField] private LocalizeTextWithIntParam prevScoreText;
 
         protected override void Start()
         {
@@ -23,6 +25,9 @@ namespace LazyBalls.Dialogs
             
             soundToggle.isOn = SoundController.Instance().IsEnabled;
             soundToggle.onValueChanged.AddListener(SetSoundEnabled);
+            
+            maxScoreText.SetParam(PlayerInfo.Instance().MaxScore);
+            prevScoreText.SetParam(PlayerInfo.Instance().PrevScore);
         }
 
         private void Continue()

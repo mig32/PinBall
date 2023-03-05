@@ -1,3 +1,4 @@
+using System;
 using LazyBalls.Singletons;
 using TMPro;
 using UnityEngine;
@@ -7,13 +8,19 @@ namespace LazyBalls.Dialogs
     [RequireComponent(typeof(TMP_Text))]
     public class LocalizeText : MonoBehaviour
     {
-        [SerializeReference] protected string localeKey;
+        [SerializeField] protected string localeKey;
+        [SerializeField] protected TMP_Text text;
 
-        protected TMP_Text Text;
+        private void OnValidate()
+        {
+            if (text == null)
+            {
+                text = GetComponent<TMP_Text>();
+            }
+        }
 
         private void Start()
         {
-            Text = GetComponent<TMP_Text>();
             LocalizationLib.Instance().OnLanguageChanged += UpdateText;
             OnStart();
         }
@@ -33,7 +40,7 @@ namespace LazyBalls.Dialogs
         
         protected virtual void UpdateText()
         {
-            Text.text = LocalizationLib.Instance().GetTranslation(localeKey);
+            text.text = LocalizationLib.Instance().GetTranslation(localeKey);
         }
     }
 }

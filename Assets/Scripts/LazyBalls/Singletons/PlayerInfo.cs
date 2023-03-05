@@ -18,6 +18,28 @@ namespace LazyBalls.Singletons
                 _score = value;
                 ScoreChanged?.Invoke();
             }
+        }        
+        
+        private int _maxScore;
+        public int MaxScore 
+        { 
+            get => _maxScore;
+            private set
+            {
+                _maxScore = value;
+                LocalStorage.MaxScore = value;
+            }
+        }        
+        
+        private int _prevScore;
+        public int PrevScore 
+        { 
+            get => _prevScore;
+            private set
+            {
+                _prevScore = value;
+                LocalStorage.PrevScore = value;
+            }
         }
         
         private int _balls;
@@ -48,6 +70,8 @@ namespace LazyBalls.Singletons
             }
 
             _instance = this;
+            _maxScore = LocalStorage.MaxScore;
+            _prevScore = LocalStorage.PrevScore;
         }
 
         private void OnDestroy()
@@ -97,6 +121,12 @@ namespace LazyBalls.Singletons
                 return;
             }
 
+            PrevScore = _score;
+            if (_score > _maxScore)
+            {
+                MaxScore = _score;
+            }
+            
             GUIController.Instance().ShowDialog(DialogType.GameOver);
         }
 

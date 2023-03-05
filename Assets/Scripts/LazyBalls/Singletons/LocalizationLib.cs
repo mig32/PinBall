@@ -19,7 +19,6 @@ namespace LazyBalls.Singletons
         
         private Dictionary<string, LocaleInfo> _locales = new();
         private SystemLanguage _selectedLanguage;
-        private const string SelectedLanguageKey = "lang";
         private readonly SystemLanguage[] _knownLanguages = new []{ SystemLanguage.Russian, SystemLanguage.English};
 
         private static LocalizationLib _instance;
@@ -38,7 +37,7 @@ namespace LazyBalls.Singletons
             _instance = this;
             var localesArr = CSVSerializer.Deserialize<LocaleInfo>(localesCSV.text);
             _locales = localesArr.ToDictionary(it => it.Key.ToLower());
-            var langInt = PlayerPrefs.GetInt(SelectedLanguageKey, -1);
+            var langInt = LocalStorage.SelectedLanguage;
             if (langInt < 0)
             {
                 var systemLanguage = Application.systemLanguage;
@@ -63,7 +62,7 @@ namespace LazyBalls.Singletons
         {
             if (_selectedLanguage != language)
             {
-                PlayerPrefs.SetInt(SelectedLanguageKey, (int)language);
+                LocalStorage.SelectedLanguage = (int)language;
                 _selectedLanguage = language;
                 OnLanguageChanged?.Invoke();
             }
