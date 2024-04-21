@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thisCamera: {fileID: 963194227}
-  _colliderToTrack: {fileID: 0}
+  _colliderToTrack: {fileID: 1882761387}
   _accuracity: 0.01
   _zoomSpeed: 0.1
 --- !u!1 &983886297
