@@ -268,7 +268,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 10
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -314,9 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2dda0cbdd7433281b05ae7d8837842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisCamera: {fileID: 963194227}
-  aspectRatioToFit: 1.24
-  zoomOutKoeff: 0.94
+  _thisCamera: {fileID: 963194227}
+  _colliderToTrack: {fileID: 0}
+  _accuracity: 0.01
+  _zoomSpeed: 0.1
 --- !u!1 &983886297
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,6 +386,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1882761385 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2951304634240115128, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
+  m_PrefabInstance: {fileID: 2951304635907033709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1882761387
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882761385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.6, y: 1, z: 22.000002}
+  m_Center: {x: -0.8, y: 0, z: 0.5}
 --- !u!1001 &2336262201022615204
 PrefabInstance:
   m_ObjectHideFlags: 0
