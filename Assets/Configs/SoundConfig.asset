@@ -12,4 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe720a4cfa7c71e4da87846b04bfa364, type: 3}
   m_Name: SoundConfig
   m_EditorClassIdentifier: 
-  soundList: []
+  soundList:
+  - type: 0
+    sounds: []
+    isLooped: 0
+  - type: 1
+    sounds: []
+    isLooped: 0
+  - type: 2
+    sounds: []
+    isLooped: 0
+  - type: 3
+    sounds: []
+    isLooped: 0
+  - type: 4
+    sounds:
+    - {fileID: 8300000, guid: 7a83692b7154a694680397fcf5a129c0, type: 3}
+    isLooped: 0
+  - type: 5
+    sounds: []
+    isLooped: 0
+  - type: 6
+    sounds: []
+    isLooped: 0
+  - type: 7
+    sounds: []
+    isLooped: 0
+  - type: 8
+    sounds: []
+    isLooped: 0
+  - type: 9
+    sounds:
+    - {fileID: 8300000, guid: a0de7cf232a763441891735eea7dc994, type: 3}
+    isLooped: 0
+  - type: 10
+    sounds: []
+    isLooped: 0
+  - type: 11
+    sounds: []
+    isLooped: 0
+  - type: 12
+    sounds: []
+    isLooped: 0
+  - type: 13
+    sounds: []
+    isLooped: 0
