@@ -1,17 +1,62 @@
 Key,Ru,En
-Play,Играть,Play
-Play_Again,Сыграть ещё раз,Play again
-Game_Over,Конец игры,Game Over
-Score,Очки,Score
-Best_Score,Лучший результат,Best score
-About,О нас,About
-About_Prod_Title,Продюсирование,Producer
-About_Prod_Name,Александр Синицын,Alexandr Sinitsyn
-About_Dev_Title,Разработка,Development
-About_Dev_Name,Григорий Капланский,Grigory Kaplansky
-About_Sound_Title,Музыка,Music
-About_Sound_Name,Александр Журавлёв,Alexandr Zhuravlev
-Balls_Count,Шары: {0},Balls: {0}
-Score_Amount,Очки: {0},Score: {0}
-MaxScore,Максимум очков: {0},Max score: {0}
-PrevScore,Очки в предыдщей игре: {0},Prevoious score: {0}
+Game_Title,LAZY BALL,LAZY BALL
+Play,ИГРАТЬ,PLAY
+Play_Again,СЫГРАТЬ ЕЩЁ РАЗ,PLAY AGAIN
+Game_Over,КОНЕЦ ИГРЫ,GAME OVER
+Score,ОЧКИ,SCORE
+Best_Score,"ЛУЧШИЙ РЕЗУЛЬТАТ
+{0}","BEST SCORE
+{0}"
+Last_Score,"ПОСЛЕДНИЙ РЕЗУЛЬТАТ
+{0}","LAST SCORE
+{0}"
+About,О НАС,ABOUT
+Balls_Count,ШАРЫ: {0},BALLS: {0}
+Score_Amount,ОЧКИ: {0},SCORE: {0}
+Continue,ПРОДОЛЖИТЬ,CONTINUE
+Exit_To_Menu,ВЫЙТИ В МЕНЮ,EXIT TO MENU
+Music,Музыка,Music
+Sound,Эффекты,Sound
+WatchAd,Реклама,WatchAd
+CreditsText,"LAZY STRAW
+
+
+
+Продюсирование
+
+Александр Синицын
+
+
+Руководитель проекта
+
+Сергей Баранов
+
+
+Программирование
+
+Григорий Капланский
+
+Музыка
+
+Александр Журавлёв","LAZY STRAW
+
+
+
+Producing
+
+Alexander Sinitsyn
+
+
+Project Manager
+
+Sergey Baranov
+
+
+Programming
+
+Grigory Kaplansky
+
+
+Music
+
+Alexander Zhuravlev"
