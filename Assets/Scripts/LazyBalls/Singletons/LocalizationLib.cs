@@ -48,6 +48,10 @@ namespace LazyBalls.Singletons
 
                 _selectedLanguage = systemLanguage;
             }
+            else
+            {
+                _selectedLanguage = (SystemLanguage)langInt;
+            }
         }
 
         private void OnDestroy()

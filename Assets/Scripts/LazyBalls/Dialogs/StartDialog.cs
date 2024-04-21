@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using LazyBalls.Ads;
+using LazyBalls.Dialogs.Common;
 using LazyBalls.Singletons;
 using TMPro;
 using UnityEngine;
@@ -17,50 +19,53 @@ namespace LazyBalls.Dialogs
             public string languageName;
         }
         
-        [SerializeField] private Toggle musicToggle;
-        [SerializeField] private Toggle soundToggle;
-        [SerializeField] private Button startButton;
-        [SerializeField] private Button adButton;
-        [SerializeField] private Button creditsButton;
-        [SerializeField] private TMP_Dropdown languageDropdown;
-        [SerializeField] private LanguageItem[] languageList;
-        [SerializeField] private LocalizeTextWithIntParam maxScoreText;
-        [SerializeField] private LocalizeTextWithIntParam prevScoreText;
+        [SerializeField] private ToggleButtonImage _musicToggle;
+        [SerializeField] private ToggleButtonImage _soundToggle;
+        [SerializeField] private Button _startButton;
+        [SerializeField] private Button _adButton;
+        [SerializeField] private Button _creditsButton;
+        [SerializeField] private Button _languageButton;
+        [SerializeField] private TMP_Text _languageText;
+        [SerializeField] private LanguageItem[] _languageList;
+        [SerializeField] private LocalizeTextWithIntParam _maxScoreText;
+        [SerializeField] private LocalizeTextWithIntParam _prevScoreText;
 
-
+        private int _curLanguageIdx;
+        
         protected override void Start()
         {
             base.Start();
             
-            startButton.onClick.AddListener(StartGame);
-            creditsButton.onClick.AddListener(ShowCredits);
+            _startButton.onClick.AddListener(StartGame);
+            _creditsButton.onClick.AddListener(ShowCredits);
             
 #if UNITY_IOS || UNITY_ANDROID
-            adButton.onClick.AddListener(ShowAd);
+            _adButton.onClick.AddListener(ShowAd);
 #else
-            adButton.gameObject.SetActive(false);
+            _adButton.gameObject.SetActive(false);
 #endif
-
-            musicToggle.isOn = MusicController.Instance().IsEnabled;
-            musicToggle.onValueChanged.AddListener(SetMusicEnabled);
             
-            soundToggle.isOn = SoundController.Instance().IsEnabled;
-            soundToggle.onValueChanged.AddListener(SetSoundEnabled);
+            _musicToggle.OnClick.AddListener(ToggleMusic);
+            _musicToggle.SetEnabled(MusicController.Instance().IsEnabled);
             
+            _soundToggle.OnClick.AddListener(ToggleSound);
+            _soundToggle.SetEnabled(SoundController.Instance().IsEnabled);
+            
+            _languageButton.onClick.AddListener(ChangeLanguage);
             var selectedLanguage = LocalizationLib.Instance().GetSelectedLanguage();
-            languageDropdown.onValueChanged.AddListener(ChangeLanguage);
-            languageDropdown.options.Clear();
-            for (var i = 0; i < languageList.Length; ++i)
+            for (var i = 0; i < _languageList.Length; ++i)
             {
-                languageDropdown.options.Add(new TMP_Dropdown.OptionData(languageList[i].languageName));
-                if (selectedLanguage == languageList[i].language)
+                var lang = _languageList[i];
+                if (selectedLanguage == lang.language)
                 {
-                    languageDropdown.value = i;
+                    _curLanguageIdx = i;
+                    _languageText.text = lang.languageName;
+                    break;
                 }
             }
             
-            maxScoreText.SetParam(PlayerInfo.Instance().MaxScore);
-            prevScoreText.SetParam(PlayerInfo.Instance().PrevScore);
+            _maxScoreText.SetParam(PlayerInfo.Instance().MaxScore);
+            _prevScoreText.SetParam(PlayerInfo.Instance().PrevScore);
             
             MusicController.Instance().PlayMusic(MusicController.MusicType.Menu);
         }
@@ -68,23 +73,17 @@ namespace LazyBalls.Dialogs
         private void StartGame()
         {
             PlayerInfo.Instance().StartGame();
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
             Destroy(gameObject);
         }
 
-        private void SetMusicEnabled(bool isEnabled)
-        {
-            MusicController.Instance().IsEnabled = isEnabled;
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
+        private void ToggleMusic()
+        {            
+            MusicController.Instance().IsEnabled = !MusicController.Instance().IsEnabled;
         }
 
-        private void SetSoundEnabled(bool isEnabled)
+        private void ToggleSound()
         {
-            SoundController.Instance().IsEnabled = isEnabled;
-            if (isEnabled)
-            {
-                SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
-            }
+            SoundController.Instance().IsEnabled = !SoundController.Instance().IsEnabled;
         }
 
         private void ShowAd()
@@ -92,11 +91,17 @@ namespace LazyBalls.Dialogs
             AdsController.Instance().ShowAd(AdType.Basic);
         }
         
-        private void ChangeLanguage(int languageIdx)
+        private void ChangeLanguage()
         {
-            var selectedLanguage = languageList[languageIdx].language;
-            LocalizationLib.Instance().SetLanguage(selectedLanguage);
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
+            ++_curLanguageIdx;
+            if (_curLanguageIdx >= _languageList.Length)
+            {
+                _curLanguageIdx = 0;
+            }
+            
+            var selectedLanguage = _languageList[_curLanguageIdx];
+            _languageText.text = selectedLanguage.languageName;
+            LocalizationLib.Instance().SetLanguage(selectedLanguage.language);
         }
 
         private void ShowCredits()
@@ -104,7 +109,6 @@ namespace LazyBalls.Dialogs
             var creditsDialog = GUIController.Instance().ShowDialog(DialogType.Credits);
             creditsDialog.OnClose += ShowThis;
             gameObject.SetActive(false);
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
 
             void ShowThis()
             {
