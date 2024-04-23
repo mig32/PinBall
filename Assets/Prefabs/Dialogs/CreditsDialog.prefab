@@ -197,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localeKey: CreditsText
+  text: {fileID: 1744378400175393778}
 --- !u!114 &1744378400175393778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,20 +218,44 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0434\u044E\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440 \u0421\u0438\u043D\u0438\u0446\u044B\u043D\r\n\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0413\u0440\u0438\u0433\u043E\u0440\u0438\u0439 \u041A\u0430\u043F\u043B\u0430\u043D\u0441\u043A\u0438\u0439\r\n\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0421\u0435\u0440\u0433\u0435\u0439 \u0411\u0430\u0440\u0430\u043D\u043E\u0432\r\n\u041C\u0443\u0437\u044B\u043A\u0430
-    - \u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440 \u0416\u0443\u0440\u0430\u0432\u043B\u0451\u0432\n\u041F\u0440\u043E\u0434\u044E\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440 \u0421\u0438\u043D\u0438\u0446\u044B\u043D\r\n\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0413\u0440\u0438\u0433\u043E\u0440\u0438\u0439 \u041A\u0430\u043F\u043B\u0430\u043D\u0441\u043A\u0438\u0439\r\n\u0422\u0435\u0441\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0421\u0435\u0440\u0433\u0435\u0439 \u0411\u0430\u0440\u0430\u043D\u043E\u0432\r\n\u041C\u0443\u0437\u044B\u043A\u0430
-    - \u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440 \u0416\u0443\u0440\u0430\u0432\u043B\u0451\u0432\n\u041F\u0440\u043E\u0434\u044E\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0410\u043B\u0435\u043A\u0441\u0430\u043D\u0434\u0440 \u0421\u0438\u043D\u0438\u0446\u044B\u043D\r\n\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435
-    - \u0413\u0440\u0438\u0433\u043E\u0440\u0438\u0439 \u041A\u0430\u043F\u043B\u0430\u043D\u0441\u043A\u0438\u0439\r\n"
+  m_text: 'LAZY STRAW
+
+    
+
+    
+
+    Producing
+
+    Alexander Sinitsyn
+
+    
+
+    
+
+    Project
+    Manager
+
+    Sergey Baranov
+
+    
+
+    
+
+    Programming
+
+    Grigory Kaplansky
+
+    
+
+    
+
+    Music
+
+    Alexander
+    Zhuravlev'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a576f5b35655f2d4ebbdf966cc82a046, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 11bbf32b60dec8e46b5ef5da1110de8c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -254,13 +279,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 61.15
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
