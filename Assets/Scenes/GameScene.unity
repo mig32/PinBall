@@ -180,6 +180,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
+--- !u!1 &478710252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2951304634240115128, guid: 1d5c80fefcea68a46b08da57b34fd415, type: 3}
+  m_PrefabInstance: {fileID: 478710251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &478710253
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478710252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.4, y: 1, z: 21}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _thisCamera: {fileID: 963194227}
-  _colliderToTrack: {fileID: 0}
+  _colliderToTrack: {fileID: 478710253}
   _accuracity: 0.01
   _zoomSpeed: 0.1
 --- !u!1 &983886297
