@@ -1,0 +1,4 @@
+Copyright (c) 2011-2012, Nikita Volchenkov <nikitavolchenkov@gmail.com>
+Copyright (c) 2012, Valek Filippov <frob@gnome.org>
+
+Created with FontForge 2.0 (http://fontforge.sf.net)
