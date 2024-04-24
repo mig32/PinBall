@@ -3,3 +3,5 @@ id,Name,Type,Score,Combo,Max
 2,Sling Shot,DirectionalBooster,50,0,50
 3,Chuters,Portal,25,0,25
 4,Arrows,ArrowsBooster,25,0,25
+5,Letter,LetterBooster,25,0,25
+6,Word,WordBooster,25,0,25

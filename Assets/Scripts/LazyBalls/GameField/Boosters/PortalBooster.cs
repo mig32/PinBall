@@ -10,6 +10,8 @@ namespace LazyBalls.GameField.Boosters
         [SerializeField] private float boosterForce;
         [SerializeField] private Transform portalExitTransform;
         
+        protected override BoosterType _type => BoosterType.Portal;
+        
         private void OnTriggerEnter(Collider other)
         {
             if (!other.gameObject.CompareTag(GameTags.Ball))

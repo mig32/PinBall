@@ -9,42 +9,40 @@ namespace LazyBalls.GameField.Boosters
         {
             public BoosterType LastBoosterType;
             public int ComboAmount;
-
-            public static BoosterHistory Create() => new BoosterHistory
-            {
-                LastBoosterType = BoosterType.None,
-                ComboAmount = 0
-            };
         }
         
-        private static BoosterHistory _boosterHistory = BoosterHistory.Create();
+        private static BoosterHistory s_boosterHistory = new() 
+        {
+            LastBoosterType = BoosterType.None,
+            ComboAmount = 0
+        };
+        
         public static void ResetCombo()
         {
-            _boosterHistory.LastBoosterType = BoosterType.None;
-            _boosterHistory.ComboAmount = 0;
+            s_boosterHistory.LastBoosterType = BoosterType.None;
+            s_boosterHistory.ComboAmount = 0;
         }
         
-        [SerializeField] private BoosterType type;
-        
+        protected abstract BoosterType _type { get; }
         private BoosterScore _boosterScore;
 
         protected virtual void Start()
         {
-            _boosterScore = BoostersLib.Instance().GetBoosterScoreForType(type);
+            _boosterScore = BoostersLib.Instance().GetBoosterScoreForType(_type);
         }
 
         protected void AddScore()
         {
             var score = _boosterScore.score;
-            if (_boosterHistory.LastBoosterType == type)
+            if (s_boosterHistory.LastBoosterType == _type)
             {
-                ++_boosterHistory.ComboAmount;
-                score += Mathf.Min(_boosterHistory.ComboAmount * _boosterScore.combo, _boosterScore.max);
+                ++s_boosterHistory.ComboAmount;
+                score += Mathf.Min(s_boosterHistory.ComboAmount * _boosterScore.combo, _boosterScore.max);
             }
             else
             {
-                _boosterHistory.LastBoosterType = type;
-                _boosterHistory.ComboAmount = 0;
+                s_boosterHistory.LastBoosterType = _type;
+                s_boosterHistory.ComboAmount = 0;
             }
 
             PlayerInfo.Instance().AddScore(score);

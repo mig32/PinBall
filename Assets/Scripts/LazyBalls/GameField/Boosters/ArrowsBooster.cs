@@ -10,6 +10,8 @@ namespace LazyBalls.GameField.Boosters
         [SerializeField] private SpriteRenderer icon;
 
         private bool _isEnabled = true;
+
+        protected override BoosterType _type => BoosterType.Arrows;
         
         private void OnTriggerEnter(Collider other)
         {

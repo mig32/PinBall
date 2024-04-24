@@ -8,6 +8,8 @@ namespace LazyBalls.GameField.Boosters
         [SerializeField] private float boosterForce;
         [SerializeField] private float angleThreshold = 60;
 
+        protected override BoosterType _type => BoosterType.Directional;
+        
         private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag(GameTags.Ball))

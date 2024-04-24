@@ -7,6 +7,8 @@ namespace LazyBalls.GameField.Boosters
     {
         [SerializeField] private float boosterForce;
 
+        protected override BoosterType _type => BoosterType.Round;
+        
         private void OnCollisionEnter(Collision other)
         {
             if (!other.gameObject.CompareTag(GameTags.Ball))

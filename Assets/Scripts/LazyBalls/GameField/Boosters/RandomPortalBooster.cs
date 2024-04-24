@@ -9,6 +9,8 @@ namespace LazyBalls.GameField.Boosters
     {
         private static List<RandomPortalBooster> entries = new();
 
+        protected override BoosterType _type => BoosterType.Portal;
+        
         private static RandomPortalBooster PickRandomPortal(RandomPortalBooster entry)
         {
             if (entries.Count < 1)
