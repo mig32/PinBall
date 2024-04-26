@@ -8,6 +8,7 @@ namespace LazyBalls.GameField.Boosters
         Portal = 3,
         Arrows = 4,
         Letter = 5,
-        Word = 6
+        Word = 6,
+        BallSplitter = 7
     }
 }

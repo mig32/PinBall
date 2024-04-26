@@ -1,3 +1,4 @@
+using LazyBalls.Dialogs.Common;
 using LazyBalls.Singletons;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,33 +7,28 @@ namespace LazyBalls.Dialogs
 {
     public class PauseDialog : DialogBase
     {
-        [SerializeField] private Button continueButton;
-        [SerializeField] private Button exitButton;
-        [SerializeField] private Toggle musicToggle;
-        [SerializeField] private Toggle soundToggle;
-        [SerializeField] private LocalizeTextWithIntParam maxScoreText;
-        [SerializeField] private LocalizeTextWithIntParam prevScoreText;
-
+        [SerializeField] private Button _continueButton;
+        [SerializeField] private Button _exitButton;
+        [SerializeField] private ToggleButtonImage _musicToggle;
+        [SerializeField] private ToggleButtonImage _soundToggle;
+        
+        
         protected override void Start()
         {
             base.Start();
             
-            continueButton.onClick.AddListener(Continue);
-            exitButton.onClick.AddListener(ExitToMenu);
+            _continueButton.onClick.AddListener(Continue);
+            _exitButton.onClick.AddListener(ExitToMenu);
 
-            musicToggle.isOn = MusicController.Instance().IsEnabled;
-            musicToggle.onValueChanged.AddListener(SetMusicEnabled);
+            _musicToggle.OnClick.AddListener(ToggleMusic);
+            _musicToggle.SetEnabled(MusicController.Instance().IsEnabled);
             
-            soundToggle.isOn = SoundController.Instance().IsEnabled;
-            soundToggle.onValueChanged.AddListener(SetSoundEnabled);
-            
-            maxScoreText.SetParam(PlayerInfo.Instance().MaxScore);
-            prevScoreText.SetParam(PlayerInfo.Instance().PrevScore);
+            _soundToggle.OnClick.AddListener(ToggleSound);
+            _soundToggle.SetEnabled(SoundController.Instance().IsEnabled);
         }
 
         private void Continue()
         {
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
             Destroy(gameObject);
         }
 
@@ -40,23 +36,17 @@ namespace LazyBalls.Dialogs
         {
             PlayerInfo.Instance().ResetGame();
             GUIController.Instance().ShowDialog(DialogType.Start);
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
             Destroy(gameObject);
         }
-
-        private void SetMusicEnabled(bool isEnabled)
-        {
-            MusicController.Instance().IsEnabled = isEnabled;
-            SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
+        
+        private void ToggleMusic()
+        {            
+            MusicController.Instance().IsEnabled = !MusicController.Instance().IsEnabled;
         }
 
-        private void SetSoundEnabled(bool isEnabled)
+        private void ToggleSound()
         {
-            SoundController.Instance().IsEnabled = isEnabled;
-            if (isEnabled)
-            {
-                SoundController.Instance().PlaySound(SoundController.SoundType.ButtonClick);
-            }
+            SoundController.Instance().IsEnabled = !SoundController.Instance().IsEnabled;
         }
 
         public override DialogType GetDialogType() => DialogType.Pause;

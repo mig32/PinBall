@@ -5,3 +5,4 @@ id,Name,Type,Score,Combo,Max
 4,Arrows,ArrowsBooster,25,0,25
 5,Letter,LetterBooster,25,0,25
 6,Word,WordBooster,25,0,25
+7,Ball Splitter,BallSplitter,25,0,25

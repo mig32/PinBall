@@ -10,7 +10,6 @@ namespace LazyBalls.GameField
             if (other.gameObject.CompareTag(GameTags.Ball))
             {
                 Destroy(other.gameObject);
-                PlayerInfo.Instance().BallDestroyed();
                 SoundController.Instance().PlaySound(SoundController.SoundType.BallDestroyed);
             }
         }

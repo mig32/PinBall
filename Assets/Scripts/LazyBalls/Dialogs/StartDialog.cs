@@ -1,11 +1,9 @@
 using System;
-using System.Linq;
 using LazyBalls.Ads;
 using LazyBalls.Dialogs.Common;
 using LazyBalls.Singletons;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace LazyBalls.Dialogs
@@ -29,6 +27,7 @@ namespace LazyBalls.Dialogs
         [SerializeField] private LanguageItem[] _languageList;
         [SerializeField] private LocalizeTextWithIntParam _maxScoreText;
         [SerializeField] private LocalizeTextWithIntParam _prevScoreText;
+        [SerializeField] private Button _exitButton;
 
         private int _curLanguageIdx;
         
@@ -38,6 +37,7 @@ namespace LazyBalls.Dialogs
             
             _startButton.onClick.AddListener(StartGame);
             _creditsButton.onClick.AddListener(ShowCredits);
+            _exitButton.onClick.AddListener(ExitApp);
             
 #if UNITY_IOS || UNITY_ANDROID
             _adButton.onClick.AddListener(ShowAd);
@@ -89,6 +89,15 @@ namespace LazyBalls.Dialogs
         private void ShowAd()
         {
             AdsController.Instance().ShowAd(AdType.Basic);
+        }
+
+        private void ExitApp()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
         
         private void ChangeLanguage()

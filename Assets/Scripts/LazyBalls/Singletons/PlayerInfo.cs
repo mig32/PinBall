@@ -1,5 +1,6 @@
 using System;
 using LazyBalls.Dialogs;
+using LazyBalls.GameField;
 using LazyBalls.GameField.Boosters;
 using UnityEngine;
 
@@ -57,7 +58,6 @@ namespace LazyBalls.Singletons
         public event Action ClearBalls;
         public event Action ScoreChanged;
         public event Action BallsChanged;
-
         
         private static PlayerInfo _instance;
         public static PlayerInfo Instance() => _instance;
@@ -114,6 +114,11 @@ namespace LazyBalls.Singletons
         
         public void BallDestroyed()
         {
+            if (BallController.s_count > 0)
+            {
+                return;
+            }
+            
             if (Balls > 0)
             {
                 Balls -= 1;
@@ -142,7 +147,9 @@ namespace LazyBalls.Singletons
 
         public bool IsGamePaused()
         {
-            return Time.timeScale <= 0.001f;
+            return Time.timeScale <= float.Epsilon;
         }
+
+        public void DoCreateNewBall() => CreateNewBall?.Invoke();
     }
 }
