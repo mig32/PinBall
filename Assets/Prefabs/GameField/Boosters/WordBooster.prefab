@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed18a152fd24600b49b6e21e75461f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _word: KILL
+  _word: LAZY
   _text: {fileID: 1362952650339512206}
   _colorTaken: {r: 1, g: 1, b: 1, a: 1}
   _colorNotTaken: {r: 0.6226415, g: 0.61383057, b: 0.61383057, a: 0.78431374}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KILL
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a576f5b35655f2d4ebbdf966cc82a046, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 11bbf32b60dec8e46b5ef5da1110de8c, type: 2}
