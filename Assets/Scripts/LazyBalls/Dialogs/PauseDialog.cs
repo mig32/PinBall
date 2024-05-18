@@ -11,8 +11,7 @@ namespace LazyBalls.Dialogs
         [SerializeField] private Button _exitButton;
         [SerializeField] private ToggleButtonImage _musicToggle;
         [SerializeField] private ToggleButtonImage _soundToggle;
-        
-        
+
         protected override void Start()
         {
             base.Start();

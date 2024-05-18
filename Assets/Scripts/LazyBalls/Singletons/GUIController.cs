@@ -68,11 +68,24 @@ namespace LazyBalls.Singletons
 
         private void Update()
         {
-            if (Input.GetButtonDown(pauseButtonKey))
+            var windowShown = dialogsContainer.childCount > 0;
+            var isPaused = PlayerInfo.Instance().IsGamePaused();
+            if (windowShown)
             {
-                if (dialogsContainer.childCount == 0)
+                if (!isPaused)
+                {
+                    PlayerInfo.Instance().PauseGame();
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown(pauseButtonKey))
                 {
                     ShowDialog(DialogType.Pause);
+                }
+                else if (isPaused)
+                {
+                    PlayerInfo.Instance().UnpauseGame();
                 }
             }
         }
