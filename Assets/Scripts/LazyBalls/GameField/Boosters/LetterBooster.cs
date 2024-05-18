@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,10 +24,14 @@ namespace LazyBalls.GameField.Boosters
         
         protected override BoosterType _type => BoosterType.Letter;
 
+        private void Awake()
+        {
+            s_letters.Add(this);
+        }
+
         protected override void Start()
         {
             base.Start();
-            s_letters.Add(this);
             SetWord(WordBooster.GetWord());
         }
 

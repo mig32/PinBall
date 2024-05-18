@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -37,10 +38,14 @@ namespace LazyBalls.GameField.Boosters
             
         protected override BoosterType _type => BoosterType.Word;
 
+        private void Awake()
+        {
+            s_instance = this;
+        }
+
         protected override void Start()
         {
             base.Start();
-            s_instance = this;
             UpdateWordText();
         }
 
