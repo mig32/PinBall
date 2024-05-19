@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e323656a9b2486aaca12bc36044e2e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBallsAmount: 2
+  _initialBallsAmount: 2

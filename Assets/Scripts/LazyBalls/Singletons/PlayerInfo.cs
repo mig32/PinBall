@@ -8,7 +8,7 @@ namespace LazyBalls.Singletons
 {
     public class PlayerInfo : MonoBehaviour
     {
-        [SerializeField] private int initialBallsAmount;
+        [SerializeField] private int _initialBallsAmount;
         
         private int _score;
         public int Score 
@@ -54,6 +54,8 @@ namespace LazyBalls.Singletons
             }
         }
 
+        private bool _isGameStarted;
+
         public event Action CreateNewBall;
         public event Action ClearBalls;
         public event Action ScoreChanged;
@@ -95,16 +97,23 @@ namespace LazyBalls.Singletons
         
         public void StartGame()
         {
+            _isGameStarted = true;
             CreateNewBall?.Invoke();
             MusicController.Instance().PlayMusic(MusicController.MusicType.Game);
         }
 
         public void ResetGame()
         {
-            Score = 0;
-            Balls = initialBallsAmount;
+            if (_score > 0)
+            {
+                SaveScore();
+            }
+            
+            _isGameStarted = false;
             BoosterBase.ResetCombo();
             ClearBalls?.Invoke();
+            Score = 0;
+            Balls = _initialBallsAmount;
         }
 
         public void AddScore(int amount)
@@ -114,7 +123,7 @@ namespace LazyBalls.Singletons
         
         public void BallDestroyed()
         {
-            if (BallController.s_count > 0)
+            if (!_isGameStarted || BallController.s_count > 0)
             {
                 return;
             }
@@ -126,13 +135,18 @@ namespace LazyBalls.Singletons
                 return;
             }
 
+            SaveScore();
+            
+            GUIController.Instance().ShowDialog(DialogType.GameOver);
+        }
+
+        private void SaveScore()
+        {
             PrevScore = _score;
             if (_score > _maxScore)
             {
                 MaxScore = _score;
             }
-            
-            GUIController.Instance().ShowDialog(DialogType.GameOver);
         }
 
         public void PauseGame()

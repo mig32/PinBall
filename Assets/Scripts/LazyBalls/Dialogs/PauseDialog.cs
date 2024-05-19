@@ -11,6 +11,7 @@ namespace LazyBalls.Dialogs
         [SerializeField] private Button _exitButton;
         [SerializeField] private ToggleButtonImage _musicToggle;
         [SerializeField] private ToggleButtonImage _soundToggle;
+        [SerializeField] private string _unpauseButtonKey = "Pause";
 
         protected override void Start()
         {
@@ -46,6 +47,14 @@ namespace LazyBalls.Dialogs
         private void ToggleSound()
         {
             SoundController.Instance().IsEnabled = !SoundController.Instance().IsEnabled;
+        }
+        
+        private void Update()
+        {
+            if (Input.GetButtonDown(_unpauseButtonKey))
+            {
+                Continue();
+            }
         }
 
         public override DialogType GetDialogType() => DialogType.Pause;
